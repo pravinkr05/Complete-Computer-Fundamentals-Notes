@@ -1,1 +1,81 @@
 
+1. Definition: A linear data structure where elements ar stored in nodes. each node contains a data element and address or reference to the next node.
+
+Type - 
+  Singly: Exah node contains data and pointer to the next node.
+  Doubly: Each node contains data and pointers to both the next and previous nodes.
+  Circular: Last node points back to the first node to form a circular structure.
+
+Operation -
+  Insertion: Adding a new node to list.
+  Deletion : Removing a node from the list.
+  Traversal: Iterating all nodes through list to access or update the value.
+  Tc = o(n), Sc = O(1)
+
+Adv - 
+  Linked list can grow or shrink dynamically.
+  Adding and removing element can be easier compared to array.
+
+Disadv -
+  Random access not allowed, it needed to traverse from beginning.
+  Each node requires extra memory to store address.
+  Updating element also needed travesing.
+
+Real life app -
+  1. Music playlist - Linked list used to store the song and next song address in each node. by using forward and backward button we can change the music or navigate between songs.
+  2. Browser History - Linked List can store visited URLs. each node represent visited url. Forwaard and bacward button lets you navigate backward and forward pages.
+
+  3. Undo/Redo functionality - Like photo editor or google docs provide this fascility. each action create a new node in the list and connect to the next action. it allows to keep track changes and revert back as needed.
+
+
+
+Real-Life Application: Music Playlist Management - 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Node structure for a song in the playlist
+struct SongNode {
+    string title;
+    string artist;
+    SongNode* next;
+
+    // Constructor
+    SongNode(string _title, string _artist) : title(_title), artist(_artist), next(nullptr) {}
+};
+
+// Function to print the playlist
+void printPlaylist(SongNode* head) {
+    int index = 1;
+    while (head != nullptr) {
+        cout << index << ". " << head->title << " by " << head->artist << endl;
+        head = head->next;
+        index++;
+    }
+}
+
+int main() {
+    // Creating a playlist using linked list
+    SongNode* head = new SongNode("Shape of You", "Ed Sheeran");
+    SongNode* second = new SongNode("Blinding Lights", "The Weeknd");
+    SongNode* third = new SongNode("Dance Monkey", "Tones and I");
+
+    // Connecting songs
+    head->next = second;
+    second->next = third;
+
+    // Print the playlist
+    cout << "My Playlist:\n";
+    printPlaylist(head);
+
+    // Remember to free memory
+    delete head;
+    delete second;
+    delete third;
+
+    return 0;
+}
+
+
+
