@@ -1,1 +1,72 @@
+Arrays:
+1. Definition - a data structure which stores data at contiguous memory location with a fixed size.
+2. Basic Operations - 
+      i. Accessing elements by their index.
+     ii. Insertion and Deletion are less efficient as shifting of elements required.
+    iii. Updating element in array by using their index.
+3. Advantage -
+    i. Simple and easy to use.
+   ii. Constant time for accessing elements.
+4. Disadv - 
+    i. once size is defined than it can't change dynamically.
+   ii. insertion and deletion in large array can be time-consuming.
+5. Real life applications - 
+    i. Shopping list - array can be used to store the toys.
+   ii. Representing Pixels in image.
+  iii. Storing student grades in grade book. 
+
+
+Vectors:
+1. Definition - A dynamic array that can resize autimaticallywhen element is stored or removed.
+2. Basic Operations - 
+      i. Resizing - vector can grow and shrink as needed.
+     ii. accessing element similar to array.
+    iii. insertion, deletion and updating elements are similar to array.
+3. Advantage -
+    i. Due to resizing it allows flexibility in use of memory.
+   ii. Some of built-in function is given.
+4. Disadv - 
+    i. Due to dynamic resizing, get overhead (computation cost is high).
+   ii. insertion and deletion in large vector can be time-consuming.
+5. Real life applications - 
+    i. List of task in todo list app.
+   ii. Employee Database - new employee added and old employee removed.
+  iii. Large datasets to store and remove the data.
+
+1. Real-Life Application: Gradebook (Using Arrays)
+
+# Gradebook using arrays
+grades = [85, 90, 75, 92, 88]
+
+# Calculate average grade
+average_grade = sum(grades) / len(grades)
+print("Average grade:", average_grade)
+
+
+2. Real-Life Application: To-Do List App (Using Vectors)-
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    // To-Do List using vectors
+    vector<string> todo_list;
+
+    // Add tasks
+    todo_list.push_back("Buy groceries");
+    todo_list.push_back("Finish homework");
+    todo_list.push_back("Call mom");
+
+    // Display tasks
+    cout << "To-Do List:\n";
+    for (const string& task : todo_list) {
+        cout << "- " << task << endl;
+    }
+
+    return 0;
+}
+
+
 
