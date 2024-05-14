@@ -1,1 +1,58 @@
+Definition: A problem solving technique used to find all possible solutions and backtrack from thse paths which do not give answer(means do not satisfy the constraints).
+
+In DFS, 
+select the first node, then find the target node by exploring recursively. 
+when we get solution in that path then return it.
+if not getting solution then backtrack it and select other path to find the target.
+
+Adv:
+1. explore all possible solution
+2. Simple to implement and understand
+3. It can be used in complex prblems.
+
+Applications: 
+1. Subset generation: generating all possible subset of string.
+2. finding all Permutation and combination of element.
+3. DFS used it.
+4.Constraint Satisfaction Problems (CSPs): Finding solutions that satisfy a set of constraints, such as scheduling, planning, and optimization problems(finding best route).
+5. Puzzle, games like tictactoe
+
+
+Example:
+
+In a simple backtracking example like finding all possible permutations of a set of numbers, you would try different orders of the numbers and backtrack if you reach a dead end where the current order doesn't work.
+
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+void permuteHelper(std::string prefix, std::string remaining) {
+    if (remaining.empty()) {
+        std::cout << prefix << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < remaining.length(); ++i) {
+        std::string newPrefix = prefix + remaining[i];
+        std::string newRemaining = remaining.substr(0, i) + remaining.substr(i + 1);
+        permuteHelper(newPrefix, newRemaining);
+    }
+}
+
+void permute(const std::string& str) {
+    permuteHelper("", str);
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+
+    std::cout << "Permutations of " << str << " are:" << std::endl;
+    permute(str);
+
+    return 0;
+}
+
 
