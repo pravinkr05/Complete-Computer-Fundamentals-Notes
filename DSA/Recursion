@@ -1,1 +1,44 @@
+Definition: a programming technique where a function calls itself directly or indirectly to solve a problem.
 
+Types:
+1. Direct: finction call itself directly.
+2. Indirect: when a funcion calls another functions and that function calls the first function, creating a cycle.
+
+Operation:
+1. Base case: A condition that terminates the recursion.
+2. Recursive case: Calls same function with modified parameters.
+
+Time complexity: No. of recursive calls and no. of operations within each call.
+Space: Maximum depth of the recursion, usually proportional to the number of recursive calls made.
+
+Advantage:
+1. Provide concise and elegant solution.
+2. Simple and more readable code compared to iterative solutions.
+3. easy problem solving: Simplifies the complex problem by breaking them into smaller called subproblems. and each subproblems can solve independently and result can be combined to solve the original problem.
+
+Real Life Applications:
+1. Mathematical algorithm - calculatig factorial and fibonacci series.
+2. File system traversal : used to find the files in large folder system.
+3. used in tree data structure for all operations.
+4. Backtracking algorithm like DFS used it to find all possible solutions.
+
+
+Example Code (C++) - Calculating Factorial:
+
+#include <iostream>
+
+// Recursive function to calculate factorial
+int factorial(int n) {
+    // Base case: factorial of 0 or 1 is 1
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // Recursive case: n! = n * (n-1)!
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int num = 5;
+    std::cout << "Factorial of " << num << " is " << factorial(num) << std::endl;
+    return 0;
+}
