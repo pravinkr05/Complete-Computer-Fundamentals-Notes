@@ -1,1 +1,113 @@
+Definition: Sequence of characters or array of characters, typically used to represent text.
 
+Operations:
+1. Concatenation: Combining two or more strings.
+2. Substring: Extracting a portion of a string.
+3. Length: Length or size of a string.
+4. Search: Searching any substring in a string.
+5. Modification: Modifying the content of string.
+
+Immutable: In python, strings are immutable, can't be modified.
+Mutable: mutable string means modification of characters are allowed. in c++.
+
+Strings are encoded using ASCII scheme. and map to numrical value and then do some operations.
+
+Real Life app:
+1. Text processing task like parsing, searching.
+2. Taking input from keyboards work as string.
+3. used to read and write the data files.
+
+
+Code in C++:
+#include <iostream>
+#include <string>
+
+int main() {
+    // Define a string
+    std::string my_string = "Hello, World!";
+
+    // Length of the string
+    std::cout << "Length of the string: " << my_string.length() << std::endl;
+
+    // Accessing individual characters
+    std::cout << "First character: " << my_string[0] << std::endl;
+    std::cout << "Last character: " << my_string[my_string.length() - 1] << std::endl;
+
+    // Slicing the string
+    std::cout << "Substring from index 7 to the end: " << my_string.substr(7) << std::endl;
+    std::cout << "Substring from index 7 to 11: " << my_string.substr(7, 5) << std::endl;
+
+    // Concatenation
+    std::string new_string = my_string + " Welcome!";
+    std::cout << "Concatenated string: " << new_string << std::endl;
+
+    // Repeating a string
+    std::string repeated_string = my_string;
+    for (int i = 0; i < 2; ++i) {
+        repeated_string += my_string;
+    }
+    std::cout << "Repeated string: " << repeated_string << std::endl;
+
+    // Finding substring
+    if (my_string.find("World") != std::string::npos) {
+        std::cout << "Substring 'World' found" << std::endl;
+    } else {
+        std::cout << "Substring not found" << std::endl;
+    }
+
+    // Counting occurrences of a character
+    int count = 0;
+    for (char c : my_string) {
+        if (c == 'l') {
+            count++;
+        }
+    }
+    std::cout << "Number of 'l' characters: " << count << std::endl;
+
+    // Converting to uppercase and lowercase
+    std::string uppercase_string = my_string;
+    std::transform(uppercase_string.begin(), uppercase_string.end(), uppercase_string.begin(), ::toupper);
+    std::cout << "Uppercase: " << uppercase_string << std::endl;
+
+    std::string lowercase_string = my_string;
+    std::transform(lowercase_string.begin(), lowercase_string.end(), lowercase_string.begin(), ::tolower);
+    std::cout << "Lowercase: " << lowercase_string << std::endl;
+
+    return 0;
+}
+
+
+# Define a string
+my_string = "Hello, World!"
+
+# Length of the string
+print("Length of the string:", len(my_string))
+
+# Accessing individual characters
+print("First character:", my_string[0])
+print("Last character:", my_string[-1])
+
+# Slicing the string
+print("Substring from index 7 to the end:", my_string[7:])
+print("Substring from index 7 to 11:", my_string[7:12])
+
+# Concatenation
+new_string = my_string + " Welcome!"
+print("Concatenated string:", new_string)
+
+# Repeating a string
+repeated_string = my_string * 3
+print("Repeated string:", repeated_string)
+
+# Finding substring
+if "World" in my_string:
+    print("Substring 'World' found")
+else:
+    print("Substring not found")
+
+# Counting occurrences of a character
+print("Number of 'l' characters:", my_string.count('l'))
+
+# Converting to uppercase and lowercase
+print("Uppercase:", my_string.upper())
+print("Lowercase:", my_string.lower())
