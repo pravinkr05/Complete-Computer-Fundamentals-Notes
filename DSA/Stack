@@ -35,4 +35,69 @@ def func2():
 func1()
 
 
+Expression evaluation:
+
+Function isBalanced(expression):
+    stack = empty stack
+    For each character ch in expression:
+        If ch is an opening bracket:
+            Push ch onto stack
+        Else if ch is a closing bracket:
+            If stack is empty:
+                Return false // Unbalanced expression
+            top = stack.pop()
+            If top does not match the corresponding opening bracket for ch:
+                Return false // Unbalanced expression
+    If stack is not empty:
+        Return false // Unbalanced expression
+    Else:
+        Return true // Balanced expression
+
+Main:
+    expression = input expression
+    If isBalanced(expression):
+        Output "The expression is balanced."
+    Else:
+        Output "The expression is not balanced."
+
+
+Code:
+#include <iostream>
+#include <stack>
+#include <string>
+
+bool isBalanced(const std::string& expr) {
+    std::stack<char> stk;
+    for (char ch : expr) {
+        if (ch == '(' || ch == '[' || ch == '{') {
+            stk.push(ch);
+        } else if (ch == ')' || ch == ']' || ch == '}') {
+            if (stk.empty()) return false;
+            char top = stk.top();
+            stk.pop();
+            if ((ch == ')' && top != '(') ||
+                (ch == ']' && top != '[') ||
+                (ch == '}' && top != '{')) {
+                return false;
+            }
+        }
+    }
+    return stk.empty();
+}
+
+int main() {
+    std::string expr;
+    std::cout << "Enter an expression: ";
+    std::getline(std::cin, expr);
+    if (isBalanced(expr)) {
+        std::cout << "The expression is balanced.\n";
+    } else {
+        std::cout << "The expression is not balanced.\n";
+    }
+    return 0;
+}
+
+
+
+
 
