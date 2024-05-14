@@ -1,1 +1,104 @@
+Definition: A linear data strucuture that follows FIFO principle, where elements are inserted at the rear(end) and remove from the front.
+
+Operation:
+1. Enqueue: Adding an element to the rear of the queue. O(1)
+2. Dequeue: Remving and returning the element from the front. O(1)
+3. Front: Returning front element. O(1)
+4. isEmpty O(1)
+5. Size O(1)
+
+Advantage:
+Efficient and simple.
+Used for scheduling task or processing incoming request.
+Constant time enqueue and dequeue operations.
+
+Real life applications:
+Task scheduling: Used in OS to manage task.
+Message queues: 
+Breadth First search:
+Printer: Print the paper in queue approach.
+Getting ticket at ticket counter, we follow queue approach.
+
+IMPLEMENTATION:
+Using linkedlist and array.
+
+
+Example:
+#include <iostream>
+#include <queue>
+
+int main() {
+    // Creating a queue
+    std::queue<int> q;
+
+    // Enqueue elements
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    // Dequeue and print elements
+    while (!q.empty()) {
+        std::cout << q.front() << " ";
+        q.pop();
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+
+
+
+Real-Life Application: Printing Queue:
+In a printing queue, multiple users send print jobs to a printer, and the jobs are processed in the order they were received. This scenario perfectly fits the FIFO behavior of a queue.
+
+#include <iostream>
+#include <queue>
+#include <string>
+
+class PrintJob {
+private:
+    std::string documentName;
+public:
+    PrintJob(const std::string& name) : documentName(name) {}
+    void print() const {
+        std::cout << "Printing document: " << documentName << std::endl;
+    }
+};
+
+class PrintQueue {
+private:
+    std::queue<PrintJob> jobs;
+public:
+    void enqueueJob(const PrintJob& job) {
+        jobs.push(job);
+    }
+
+    void processJobs() {
+        while (!jobs.empty()) {
+            PrintJob currentJob = jobs.front();
+            currentJob.print();
+            jobs.pop();
+        }
+    }
+
+    bool isEmpty() const {
+        return jobs.empty();
+    }
+};
+
+int main() {
+    PrintQueue printer;
+
+    // Enqueue print jobs
+    printer.enqueueJob(PrintJob("Document1"));
+    printer.enqueueJob(PrintJob("Document2"));
+    printer.enqueueJob(PrintJob("Document3"));
+
+    // Process print jobs
+    std::cout << "Printing Jobs:\n";
+    printer.processJobs();
+
+    return 0;
+}
 
