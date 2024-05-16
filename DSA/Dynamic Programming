@@ -1,1 +1,51 @@
+Definition: A problem solving technique used to solve problems by breaking them into simple subproblems and solve each subproblems only once then store the result for future reference to avoid redundant calculations.
+
+Types:
+1. Top-Down (Memoization) : solving problem recursively and store the result in memoization ( array / dictionary ).
+
+2. Bottom-Up (Tabulation) : start solving problems from smallest and building up to the lager ones by iteratively and store the result in a table( array / matrix ).
+   this approach uses no memory and no recursion.
+
+Advantage:
+Avoid redundant computations.
+Reduces time complexity due to breaking problems.
+applicable in wide range of area.
+
+
+Real life applications:
+1. Fibonacci Sequence: Calculating Fibonacci numbers efficiently using dynamic programming to avoid redundant calculations.
+2. Shortest Path Algorithms: Finding the shortest path in graphs using dynamic programming techniques like Floyd-Warshall and Bellman-Ford algorithms.
+3. Knapsack Problem: Solving the 0/1 Knapsack Problem to maximize the value of items in a knapsack under weight constraints.
+4. Sequence Alignment: Aligning sequences of DNA or proteins in bioinformatics to find similarities and differences.
+
+
+Top-Down (Memoization) Approach (Python):
+    def fibonacci_memo(n, memo={}):
+        if n in memo:
+            return memo[n]
+        if n <= 2:
+            return 1
+        memo[n] = fibonacci_memo(n - 1, memo) + fibonacci_memo(n - 2, memo)
+        return memo[n]
+    
+    n = 10
+    print("Fibonacci of", n, ":", fibonacci_memo(n))
+
+
+
+Bottom-Up (Tabulation) Approach (Python):
+    def fibonacci_tabulation(n):
+        if n <= 2:
+            return 1
+        fib = [0] * (n + 1)
+        fib[1] = 1
+        fib[2] = 1
+        for i in range(3, n + 1):
+            fib[i] = fib[i - 1] + fib[i - 2]
+        return fib[n]
+    
+    n = 10
+    print("Fibonacci of", n, ":", fibonacci_tabulation(n))
+
+
 
